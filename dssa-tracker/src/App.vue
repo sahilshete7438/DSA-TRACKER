@@ -67,10 +67,11 @@ export default {
   methods: {
     async login() {
       try {
-        const response = await axios.post('http://localhost:5000/login', {
-          username: this.loginUsername,
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/login`, {
+           username: this.loginUsername,
           password: this.loginPassword,
         });
+
         this.loggedInUser = response.data.username;
         this.streak = response.data.streak; // Update streak count
         this.$root.loggedInUser = response.data.username; // Store the username globally
@@ -83,10 +84,11 @@ export default {
     },
     async signup() {
       try {
-        const response = await axios.post('http://localhost:5000/signup', {
-          username: this.signupUsername,
-          password: this.signupPassword,
-        });
+        cconst response = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, {
+        username: this.signupUsername,
+        password: this.signupPassword,
+      });
+
         alert(response.data.message);
         this.showSignup = false;
       } catch (err) {
