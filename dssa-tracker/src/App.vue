@@ -84,7 +84,7 @@ export default {
     },
     async signup() {
       try {
-        cconst response = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, {
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, {
         username: this.signupUsername,
         password: this.signupPassword,
       });
